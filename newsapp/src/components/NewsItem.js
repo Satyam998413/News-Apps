@@ -10,7 +10,7 @@ export class NewsItem extends Component {
         return (
             <div>
                 <div className="card my-3">
-                    <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:"90%",zindex:"1"}}>
+                    <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:"87%",zindex:"1"}}>
                         {source}
                        
                       </span>
@@ -19,17 +19,17 @@ export class NewsItem extends Component {
                             <h5 className="card-title">{title}</h5>
                             
                             <p className="card-text">{description}</p>
-                            <div class="d-flex mx-2 justify-content-between">
-                                <div className="w-50">
+                            <div class="d-flex justify-content-end">
+                              
 
-                                    <p className="card-text"><small class="text-muted">By <u><b>{!author?"unknown":author}</b></u>On<span class="badge bg-dark">{new Date(date).toGMTString()}</span></small></p>
-                                </div>
-                                <div className="w-30 my-3">
-                                    <a  rel="noopener noreferrer" href={newsUrl} target="_blank" className="btn btn-dark btn-sm">Read More</a>
-
-                                </div>
+                                    <p className="card-text"><small class="text-muted">By <u><b>{!author?"unknown":author}..</b></u>On-<span class="badge bg-dark">{new Date(date).toGMTString()}</span></small></p>
+                               
                             </div>
                             
+                            <div className="my-2">
+                                <a  rel="noopener noreferrer" href={newsUrl} target="_blank" className="btn btn-dark btn-sm">Read More</a>
+
+                            </div>
                         </div>
                 </div>
             </div>

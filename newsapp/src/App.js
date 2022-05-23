@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import News from './components/News';
 import About from './components/About';
 import {
+  Switch,
   BrowserRouter,
   Routes,
   Route,
@@ -36,6 +37,7 @@ export default class App extends Component {
           <Route exact strict path="/science" key="science" element={<News pageSize={12} country="in" category="science" />} />
           <Route exact strict path="/health" key="health" element={<News pageSize={12} country="in" category="health" />} />
         </Routes>
+        
 
       </BrowserRouter>
 
