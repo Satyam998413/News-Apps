@@ -10,7 +10,7 @@ export class NewsItem extends Component {
         return (
             <div>
                 <div className="card my-3">
-                    <span class="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:"87%",zindex:"1"}}>
+                    <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:"87%",zindex:"1"}}>
                         {source}
                        
                       </span>
@@ -19,10 +19,10 @@ export class NewsItem extends Component {
                             <h5 className="card-title">{title}</h5>
                             
                             <p className="card-text">{description}</p>
-                            <div class="d-flex justify-content-end">
+                            <div className="d-flex justify-content-end">
                               
 
-                                    <p className="card-text"><small class="text-muted">By <u><b>{!author?"unknown":author}..</b></u>On-<span class="badge bg-dark">{new Date(date).toGMTString()}</span></small></p>
+                                    <p className="card-text"><small className="text-muted">By <u><b>{!author?"unknown":author}..</b></u>On-<span className="badge bg-dark">{new Date(date).toGMTString()}</span></small></p>
                                
                             </div>
                             
