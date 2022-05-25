@@ -72,3 +72,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
  <!-- Adding by me -->
  npm install react-router-dom@6
+
+ goole search react lifecycle model
+ <!-- npm infinite scroll -->
+ npm install --save react-infinite-scroll-component
+ import InfiniteScroll from "react-infinite-scroll-component";
+ <InfiniteScroll
+            dataLength={this.state.items.length}
+            next={this.fetchMoreData}
+            hasMore={true}
+            loader={<Spinner />} >
+            {this.state.articles.map((element) => {
+                return <div className="col-md-3" key={element.url}>
+                  <NewsItem title={element.title ? element.title.slice((0, 45)) : ""} description={element.description ? element.description.slice(0, 88) : ""} imgurl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                </div>
+              })}
+            </div>
+          </InfiniteScroll>
+
+<!-- for loading bar -->
+npm i react-top-loading-bar
