@@ -8,16 +8,17 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 
 export class News extends Component {
-  static defaultProps = {
-    country: 'in',
-    pageSize: 9,
-    category: 'sports'
-  }
-  static propTypes = {
-    country: PropTypes.string,
-    pageSize: PropTypes.number,
-    category: PropTypes.string,
-  }
+  // for class based to convert function based
+  // static defaultProps = {
+  //   country: 'in',
+  //   pageSize: 9,
+  //   category: 'sports'
+  // }
+  // static propTypes = {
+  //   country: PropTypes.string,
+  //   pageSize: PropTypes.number,
+  //   category: PropTypes.string,
+  // }
   capitalizeFirstLetter = (string) => {
     let result = string.toLocaleUpperCase();
     return result
@@ -56,6 +57,15 @@ export class News extends Component {
     // this.props.setProgress(100);
 
   }
+
+  // useEffect(() => {
+  //   return () => {
+  //     document.title = `NewsCremen-${this.capitalizeFirstLetter(this.props.category)}`;
+ 
+  //     this.updateNews();
+
+  //   };
+  // }, [])
 
   async componentDidMount() {
 
@@ -125,9 +135,10 @@ export class News extends Component {
 
   }
   fetchMoreData = async () => {
-    this.setState({ page: this.state.page + 1 });
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikeys}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    
+    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apikeys}&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
     // this.setState({ loading: true });
+    this.setState({ page: this.state.page + 1 });
     let data = await fetch(url);
     let parsedData = await data.json();
 
@@ -143,7 +154,7 @@ export class News extends Component {
 
 
 
-        <h1 className="text-center"><u>NewsCremen-Top {this.capitalizeFirstLetter(this.props.category)} HeadLines </u></h1>
+        <h1 className="text-center" style={{marginTop:'80px'}}><u>NewsCremen-Top {this.capitalizeFirstLetter(this.props.category)} HeadLines </u></h1>
         {this.state.loading && <Spinner />}
         <InfiniteScroll
           dataLength={this.state.articles.length}
@@ -173,4 +184,15 @@ export class News extends Component {
   }
 }
 
+
+News.defaultProps = {
+  country: 'in',
+  pageSize: 9,
+  category: 'sports'
+}
+ News.propTypes = {
+  country: PropTypes.string,
+  pageSize: PropTypes.number,
+  category: PropTypes.string,
+}
 export default News
